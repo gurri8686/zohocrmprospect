@@ -1,8 +1,8 @@
-Given are the postman requests for both the APIs with test values. Passed URL is localhost URL(http://localhost:8000) and can be replaced with assigned domain.
+Given are the postman requests for both the APIs with test values. 
 
 # Create Prospect API request
 
-curl --location --request POST 'http://localhost:8000/api/prospects' \
+curl --location --request POST '(YOUR_DOMAIN_NAME)/api/prospects' \
 --header 'Content-Type: application/json' \
 --form 'First_Name=Test' \
 --form 'Name=Test' \
@@ -14,8 +14,11 @@ curl --location --request POST 'http://localhost:8000/api/prospects' \
 --form 'Status=New Prospect'
 
 
-
 # List recent 5 Prospect API request
 
-curl --location --request GET 'http://localhost:8000/api/prospects' \
+curl --location --request GET '(YOUR_DOMAIN_NAME)/api/prospects' \
 --header 'Content-Type: application/json' \
+
+# Note
+- To pass the URL in .env file constant name is ZOHO_CRM_API_URL 
+- To pass the token in .env file constant name is ZOHO_CRM_TOKEN
