@@ -51,8 +51,6 @@ class LeadsController extends Controller
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
-        $url = env('ZOHO_CRM_CREATE_URL');
-
         $data = [
             [
                 'First_Name' => $request->First_Name,
