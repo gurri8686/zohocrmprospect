@@ -13,10 +13,10 @@ class LeadsController extends Controller
     // Get the 5 most recent prospects from Zoho CRM
     public function getRecentProspects()
     {
-        $url =  env('ZOHO_CRM_GET_URL');
+        
 
         // Zoho API Call
-        $response = $this->makeZohoApiRequest('GET', $url, [
+        $response = $this->makeZohoApiRequest('GET', "Prospects", [
             'query' => [
                 'page' => 1,
                 'per_page' => 5,
@@ -67,7 +67,7 @@ class LeadsController extends Controller
         ];
 
         // Make Zoho API call
-        $response = $this->makeZohoApiRequest('POST', $url, [
+        $response = $this->makeZohoApiRequest('POST', "Prospects", [
             'json' => ['data' => $data]
         ]);
 
@@ -93,10 +93,12 @@ class LeadsController extends Controller
     }
 
     // Helper method to make API requests
-    private function makeZohoApiRequest($method, $url, $options = [])
+    private function makeZohoApiRequest($method, $urlEndPoint, $options = [])
     {
+        $apiUrl =  env('ZOHO_CRM_API_URL')."/".$urlEndPoint;
         $client = new Client();
-        $response = $client->request($method, $url, array_merge([
+
+        $response = $client->request($method, $apiUrl, array_merge([
             'headers' => [
                 'Authorization' => 'Zoho-oauthtoken ' . Config::get('services.zoho.crm_token'),
                 'Content-Type' => 'application/json'
