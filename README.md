@@ -1,5 +1,6 @@
-# zohoprospects
-# Create Prospect
+Given are the postman requests for both the APIs with test values. Passed URL is localhost URL(http://localhost:8000) and can be replaced with assigned domain.
+
+# Create Prospect API request
 
 curl --location --request POST 'http://localhost:8000/api/prospects' \
 --header 'Content-Type: application/json' \
@@ -13,9 +14,8 @@ curl --location --request POST 'http://localhost:8000/api/prospects' \
 --form 'Status=New Prospect'
 
 
-# ---------------------------------
 
-# List recent 5 Prospect
+# List recent 5 Prospect API request
 
 curl --location --request GET 'http://localhost:8000/api/prospects' \
 --header 'Content-Type: application/json' \
