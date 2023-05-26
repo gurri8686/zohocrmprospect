@@ -77,7 +77,6 @@ class LeadsController extends Controller
         $to = 'it@truewealth.com.au';
         $subject = 'New Prospect Created';
         $message = 'A new prospect has been created in Zoho CRM.' . "\r\n";
-        $message .= 'ID: ' . $prospect['data'][0]['details']['id'] . "\r\n";
         $message .= 'Name: ' . $request->First_Name . ' ' . $request->Name . "\r\n";
         $message .= 'Email: ' . $request->Email . "\r\n";
         $message .= 'Zoho CRM Link: https://crmsandbox.zoho.com.au/crm/newff/tab/CustomModule1/' . $prospect['data'][0]['details']['id'] . "\r\n";
